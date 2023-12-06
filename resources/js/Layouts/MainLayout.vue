@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { Link } from "@inertiajs/vue3";
+import { Head, Link } from "@inertiajs/vue3";
 
 import Magnify from "vue-material-design-icons/Magnify.vue";
 import HeartOutline from "vue-material-design-icons/HeartOutline.vue";
@@ -19,4 +19,5 @@ let showCreatePost = ref(false);
     <div id="MainLayout" class="bg-red-600">
         <div>MainLayout</div>
     </div>
+    <slot></slot>
 </template>
