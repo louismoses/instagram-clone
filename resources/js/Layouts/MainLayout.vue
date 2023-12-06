@@ -30,8 +30,26 @@ let showCreatePost = ref(false);
                         alt="Instagram Logo"
                     />
                 </Link>
+                <div class="flex items-center w-[50%]">
+                    <div
+                        class="flex items-center w-full bg-gray-100 rounded-lg"
+                    >
+                        <Magnify class="pl-4" fillColor="#8e8e8e" :size="27" />
+                        <input
+                            type="text"
+                            placeholder="Search"
+                            class="bg-transparent w-full border-0 ring-0 focus:ring-0 placeholder-[#8e8e8e]"
+                        />
+                    </div>
+                    <HeartOutline
+                        class="pl-4 pr-3"
+                        fillColor="#000"
+                        :size="27"
+                    />
+                </div>
             </div>
         </div>
+        <div v-if="$page.url !== '/'" id="TopNavUser"></div>
     </div>
     <slot></slot>
 </template>
