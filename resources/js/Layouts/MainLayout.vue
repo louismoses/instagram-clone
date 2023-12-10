@@ -114,10 +114,35 @@ let showCreatePost = ref(false);
                 </main>
             </div>
             <div
-                v-if="$page.url !== '/'"
+                v-if="$page.url === '/'"
                 id="SuggestionsSection"
-                class=""
-            ></div>
+                class="lg:w-4/12 lg:block hidden text-black mt-10"
+            >
+                <Link
+                    href="/"
+                    class="flex items-center justify-between max-w-[300px]"
+                >
+                    <div class="flex items-center">
+                        <img
+                            class="rounded-full z-10 w[58px] h-[58px]"
+                            src="https://picsum.photos/id/237/300/320"
+                        />
+                        <div class="pl-4">
+                            <div class="text-black font-extrabold">
+                                Name HEre
+                            </div>
+                            <div class="text-gray-500 font-extrabold text-sm">
+                                Name Here
+                            </div>
+                        </div>
+                        <button
+                            class="text-blue-500 hover:text-gray-900 text-xs font-extrabold"
+                        >
+                            Switch
+                        </button>
+                    </div>
+                </Link>
+            </div>
         </div>
     </div>
 </template>
