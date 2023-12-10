@@ -113,6 +113,11 @@ let showCreatePost = ref(false);
                     <slot></slot>
                 </main>
             </div>
+            <div
+                v-if="$page.url !== '/'"
+                id="SuggestionsSection"
+                class=""
+            ></div>
         </div>
     </div>
 </template>
