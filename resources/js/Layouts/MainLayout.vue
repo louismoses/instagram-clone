@@ -8,6 +8,10 @@ import ChevronLeft from "vue-material-design-icons/ChevronLeft.vue";
 import AccountPlusOutline from "vue-material-design-icons/AccountPlusOutline.vue";
 
 import MenuItem from "@/Components/MenuItem.vue";
+import HomeOutline from "vue-material-design-icons/HomeOutline.vue";
+import Compass from "vue-material-design-icons/Compass.vue";
+import SendOutline from "vue-material-design-icons/SendOutline.vue";
+import Plus from "vue-material-design-icons/Plus.vue";
 
 let showCreatePost = ref(false);
 </script>
@@ -77,21 +81,15 @@ let showCreatePost = ref(false);
                 <Link href="/">
                     <MenuItem iconString="Home" class="mb-4" />
                 </Link>
-                <Link href="/">
-                    <MenuItem iconString="Search" class="mb-4" />
-                </Link>
-                <Link href="/">
-                    <MenuItem iconString="Explore" class="mb-4" />
-                </Link>
-                <Link href="/">
-                    <MenuItem iconString="Message" class="mb-4" />
-                </Link>
-                <Link href="/">
-                    <MenuItem iconString="Notification" class="mb-4" />
-                </Link>
-                <Link href="/">
-                    <MenuItem iconString="Create" class="mb-4" />
-                </Link>
+                <MenuItem iconString="Search" class="mb-4" />
+                <MenuItem iconString="Explore" class="mb-4" />
+                <MenuItem iconString="Message" class="mb-4" />
+                <MenuItem iconString="Notification" class="mb-4" />
+                <MenuItem
+                    @click="($event) => (showCreatePost = true)"
+                    iconString="Create"
+                    class="mb-4"
+                />
                 <Link href="/">
                     <MenuItem iconString="Profile" class="mb-4" />
                 </Link>
@@ -188,6 +186,37 @@ let showCreatePost = ref(false);
                     </div>
                 </div>
             </div>
+        </div>
+        <div
+            id="BottomNav"
+            class="fixed z-30 bottom-0 w-full md:hidden flex items-center justify-around bg-white border-t-gray-300"
+        >
+            <Link href="/">
+                <HomeOutline
+                    fillColor="#000"
+                    :size="33"
+                    class="cursor-pointer"
+                />
+            </Link>
+            <Compass fillColor="#000" :size="33" class="cursor-pointer" />
+            <SendOutline fillColor="#000" :size="33" class="cursor-pointer" />
+            <Plus
+                @click="($event) => (showCreatePost = true)"
+                fillColor="#000"
+                :size="33"
+                class="cursor-pointer"
+            />
+            <AccountPlusOutline
+                fillColor="#000"
+                :size="33"
+                class="cursor-pointer"
+            />
+            <Link href="/">
+                <img
+                    class="rounded-full z-10 w[30px] h-[30px]"
+                    src="https://picsum.photos/id/85/300/320"
+                />
+            </Link>
         </div>
     </div>
 </template>
