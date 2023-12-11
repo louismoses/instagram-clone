@@ -135,13 +135,58 @@ let showCreatePost = ref(false);
                                 Name Here
                             </div>
                         </div>
-                        <button
-                            class="text-blue-500 hover:text-gray-900 text-xs font-extrabold"
-                        >
-                            Switch
-                        </button>
                     </div>
+                    <button
+                        class="text-blue-500 hover:text-gray-900 text-xs font-extrabold"
+                    >
+                        Switch
+                    </button>
                 </Link>
+                <div
+                    class="max-w-[300px] flex items-center justify-between py-3"
+                >
+                    <div class="font-extrabold text-gray-500">
+                        Suggestions for you
+                    </div>
+                    <button
+                        class="text-blue-500 hover:text-gray-900 text-xs font-extrabold"
+                    >
+                        See All
+                    </button>
+                </div>
+                <Link
+                    href="/"
+                    class="flex items-center justify-between max-w-[300px] pb-2"
+                >
+                    <div class="flex items-center">
+                        <img
+                            class="rounded-full z-10 w[37px] h-[37px]"
+                            src="https://picsum.photos/id/50/300/320"
+                        />
+                        <div class="pl-4">
+                            <div class="text-black font-extrabold">
+                                Name HEre
+                            </div>
+                            <div class="text-gray-500 font-extrabold text-sm">
+                                Name Here
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="text-blue-500 hover:text-gray-900 text-xs font-extrabold"
+                    >
+                        Follow
+                    </button>
+                </Link>
+                <div class="mt-5 max-w-[300px]">
+                    <div class="text-sm text-gray-400">
+                        About Help Press API Jobs Privacy Terms Locations
+                        Language Meta Verified
+                    </div>
+                    <div class="text-left text-gray-400 mt-4">
+                        © 2023 INSTAGRAM FROM META
+                    </div>
+                </div>
             </div>
         </div>
     </div>
