@@ -222,8 +222,5 @@ let showCreatePost = ref(false);
         </div>
     </div>
 
-    <CreatePostOverlay
-        v-if="showCreatePost"
-        @close="($event) => (showCreatePost = false)"
-    />
+    <CreatePostOverlay v-if="showCreatePost" @close="showCreatePost = false" />
 </template>

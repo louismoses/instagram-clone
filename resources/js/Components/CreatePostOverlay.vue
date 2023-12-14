@@ -8,6 +8,37 @@ import MapMarkerOutline from "vue-material-design-icons/MapMarkerOutline.vue";
 import ChevronDown from "vue-material-design-icons/ChevronDown.vue";
 
 // const user = usePage().props.auth.user
+
+const emit = defineEmits(["close"]);
+
+const form = reactive({
+    text: null,
+    file: null,
+});
+
+let isValidFile = ref(null);
+let fileDisplay = ref("");
+let textarea = ref("");
+let error = ref({
+    text: null,
+    file: null,
+});
+
+const closeOverlay = () => {
+    form.text = null;
+    form.file = null;
+    fileDisplay.value = "";
+    emit("close");
+};
 </script>
 
-<template></template>
+<template>
+    <div
+        id="OverlatSection"
+        class="fixed z-50 top-0 left-0 w-full h-screen bg-black bg-opacity-60 p-3"
+    >
+        <button class="absolute right-3 cursor-pointer" @click="closeOverlay()">
+            <Close fillColor="white" :size="27" />
+        </button>
+    </div>
+</template>
