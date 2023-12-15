@@ -50,6 +50,7 @@ const closeOverlay = () => {
                     :size="30"
                     fillColor="#000000"
                     @click="closeOverlay()"
+                    class="cursor-pointer"
                 />
                 <div class="text-lg font-extrabold">New reel</div>
                 <button
@@ -58,6 +59,44 @@ const closeOverlay = () => {
                 >
                     Share
                 </button>
+            </div>
+
+            <div
+                class="w-full md:flex h-[calc(100%-55px)] rounded-lg overflow-auto"
+            >
+                <div
+                    class="flex items-center bg-gray-100 w-full h-full overflow-hidden"
+                >
+                    <div
+                        v-if="!fileDisplay"
+                        class="flex flex-col items-center mx-auto"
+                    >
+                        <label
+                            for="file"
+                            class="hover:bg-blue-700 bg-blue-500 rounded-lg p-2.5 text-white font-extrabold cursor-pointer"
+                            >Select From Computer</label
+                        >
+                        <input
+                            type="file"
+                            id="file"
+                            class="hidden"
+                            @input="($event) => getUploadedImage($event)"
+                        />
+                        <div
+                            v-if="error && error.file"
+                            class="text-red-500 text-center p-2 font-extrabold"
+                        >
+                            {{ error.file }}
+                        </div>
+                        <div
+                            v-if="!fileDisplay && isValidFile === false"
+                            class="text-red-500 text-center p-2 font-extrabold"
+                        >
+                            File not accepted
+                        </div>
+                    </div>
+                    <img src="" alt="" />
+                </div>
             </div>
         </div>
     </div>
