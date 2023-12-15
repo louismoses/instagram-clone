@@ -24,6 +24,28 @@ let error = ref({
     file: null,
 });
 
+const getUploadedImage = (e) => {
+    form.file = e.target.files[0];
+    let extension = form.file.name.substring(
+        form.file.name.lastIndexOf(".") + 1
+    );
+
+    console.log(extension);
+    if (extension == "png" || extension == "jpg" || extension == "jpeg") {
+        isValidFile.value = true;
+    } else {
+        isValidFile.value = false;
+        return;
+    }
+
+    fileDisplay.value = URL.createObjectURL(e.target.files[0]);
+    setTimeout(() => {
+        document
+            .getElementById("TextAreaSection")
+            .scrollIntoView({ behavior: "smooth" });
+    }, 300);
+};
+
 const closeOverlay = () => {
     form.text = null;
     form.file = null;
@@ -95,7 +117,11 @@ const closeOverlay = () => {
                             File not accepted
                         </div>
                     </div>
-                    <img src="" alt="" />
+                    <img
+                        v-if="!fileDisplay && isValidFile === true"
+                        :src="fileDisplay"
+                        class="min-w-[400px] p-4 mx-auto"
+                    />
                 </div>
             </div>
         </div>
