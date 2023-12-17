@@ -37,12 +37,11 @@ const getUploadedImage = (e) => {
         isValidFile.value = false;
         return;
     }
-
+    console.log("first");
     fileDisplay.value = URL.createObjectURL(e.target.files[0]);
     setTimeout(() => {
-        document
-            .getElementById("TextAreaSection")
-            .scrollIntoView({ behavior: "smooth" });
+        document.getElementById("TextAreaSection");
+        // .scrollIntoView({ behavior: "smooth" });
     }, 300);
 };
 
@@ -56,7 +55,7 @@ const closeOverlay = () => {
 
 <template>
     <div
-        id="OverlatSection"
+        id="OverlaySection"
         class="fixed z-50 top-0 left-0 w-full h-screen bg-black bg-opacity-60 p-3"
     >
         <button class="absolute right-3 cursor-pointer" @click="closeOverlay()">
@@ -118,7 +117,7 @@ const closeOverlay = () => {
                         </div>
                     </div>
                     <img
-                        v-if="!fileDisplay && isValidFile === true"
+                        v-if="fileDisplay && isValidFile === true"
                         :src="fileDisplay"
                         class="min-w-[400px] p-4 mx-auto"
                     />
