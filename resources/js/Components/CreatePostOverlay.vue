@@ -29,8 +29,6 @@ const getUploadedImage = (e) => {
     let extension = form.file.name.substring(
         form.file.name.lastIndexOf(".") + 1
     );
-
-    console.log(extension);
     if (extension == "png" || extension == "jpg" || extension == "jpeg") {
         isValidFile.value = true;
     } else {
@@ -40,8 +38,9 @@ const getUploadedImage = (e) => {
     console.log("first");
     fileDisplay.value = URL.createObjectURL(e.target.files[0]);
     setTimeout(() => {
-        document.getElementById("TextAreaSection");
-        // .scrollIntoView({ behavior: "smooth" });
+        document
+            .getElementById("TextAreaSection")
+            .scrollIntoView({ behavior: "smooth" });
     }, 300);
 };
 
@@ -121,6 +120,58 @@ const closeOverlay = () => {
                         :src="fileDisplay"
                         class="min-w-[400px] p-4 mx-auto"
                     />
+                </div>
+
+                <div id="TextAreaSection" class="max-w-[720px] w-full relative">
+                    <div class="flex items-center justify-between p-3">
+                        <div class="flex items-center">
+                            <img
+                                class="rounded-full w-38px h-[38px]"
+                                src="https://picsum.photos/id/50/300/320"
+                            />
+                            <div class="ml-4 font-extrabold text-[15px]">
+                                NAME HERE
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        v-if="error && error.text"
+                        class="text-red-500 p-2 font-extrabold"
+                    >
+                        {{ error.text }}
+                    </div>
+                    <div class="flex w-full max-h-[200px] bg-white border-b">
+                        <textarea
+                            ref="textarea"
+                            v-model="form.text"
+                            placeholder="Write caption..."
+                            rows="10"
+                            class="placeholder-gray-500 w-full border-0 mt-2 mb-2 z-50 focus:ring-0 text-gray-600 text-[18px]"
+                        ></textarea>
+                    </div>
+                    <div class="flex items-center justify-between border-b p-3">
+                        <div class="text-lg font-extrabold text-gray-500">
+                            Add location
+                        </div>
+                        <MapMarkerOutline :size="27" />
+                    </div>
+                    <div class="flex items-center justify-between border-b p-3">
+                        <div class="text-lg font-extrabold text-gray-500">
+                            Accessibility
+                        </div>
+                        <ChevronDown :size="27" />
+                    </div>
+                    <div class="flex items-center justify-between border-b p-3">
+                        <div class="text-lg font-extrabold text-gray-500">
+                            Advanced Settings
+                        </div>
+                        <ChevronDown :size="27" />
+                    </div>
+                    <div class="text-gray-500 mt-3 p-3 text-sm">
+                        Your reel will be shared with your followers in their
+                        feeds and can be seen on your profila. It may also
+                        appear in places such as Reels, where anyone can see it
+                    </div>
                 </div>
             </div>
         </div>
