@@ -24,6 +24,23 @@ let error = ref({
     file: null,
 });
 
+const createPostFunc = () => {
+    error.value.text = null;
+    error.value.file = null;
+
+    router.post("/posts", form, {
+        forceFormData: true,
+        preserveScroll: true,
+        onError: (errors) => {
+            errors && errors.text ? (error.value.text = errors.text) : "";
+            errors && errors.file ? (error.value.file = errors.file) : "";
+        },
+        onSuccess: () => {
+            closeOverlay();
+        },
+    });
+};
+
 const getUploadedImage = (e) => {
     form.file = e.target.files[0];
     let extension = form.file.name.substring(
