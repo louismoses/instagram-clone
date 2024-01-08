@@ -107,6 +107,7 @@ onMounted(() => {
                     View all 4 comments
                 </button>
             </div>
+            <div class="pb-20"></div>
         </div>
     </MainLayout>
 </template>
