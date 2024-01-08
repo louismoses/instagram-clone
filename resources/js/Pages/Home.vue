@@ -2,6 +2,7 @@
 import { ref, onMounted, toRefs } from "vue";
 import { Head, Link, router } from "@inertiajs/vue3";
 import MainLayout from "@/Layouts/MainLayout.vue";
+import LikeSection from "@/Components/LikeSection.vue";
 
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
@@ -60,7 +61,64 @@ onMounted(() => {
                         </div>
                     </Link>
                 </Slide>
+                <template #addons>
+                    <Navigation />
+                </template>
             </Carousel>
+            <div id="Posts" class="px-4 max-w-[600px] mx-auto mt-10">
+                <div class="flex items-center justify-between py-2">
+                    <div class="flex items-center">
+                        <Link href="/" class="flex items-center">
+                            <img
+                                src="https://picsum.photos/id/60/300/320"
+                                class="rounded-full w-[38px] h-[38px]"
+                            />
+                            <div class="ml-4 font-extrabold text-[15px]">
+                                Name Here
+                            </div></Link
+                        >
+                        <div
+                            class="flex items-center text-[15px] text-gray-500"
+                        >
+                            <span class="-mt-5 ml-2 mr-[5px] text-[35px]"
+                                >.</span
+                            >
+                            <div>Date here</div>
+                        </div>
+                    </div>
+                    <DotsHorizontal class="cursor-pointer" :size="27" />
+                </div>
+
+                <div
+                    class="bg-black rounded-lg w-full min-h-[400px] flex items-center"
+                >
+                    <img
+                        src="https://picsum.photos/id/100/300/320"
+                        class="mx-auto w-full"
+                    />
+                </div>
+                <LikeSection />
+                <div class="text-black font-extrabold py-1">3 likes</div>
+                <div>
+                    <span class="text-black font-extrabold">Name Here</span>
+                    this is some text here
+                </div>
+                <button class="text-gray-500 font-extrabold py-1">
+                    View all 4 comments
+                </button>
+            </div>
         </div>
     </MainLayout>
 </template>
+
+<style>
+.carousel__prev,
+.carousel__prev:hover,
+.carousel__next,
+.carousel__next:hover {
+    color: rgb(49, 49, 49);
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
+    margin: 0 20px;
+}
+</style>
